@@ -1,27 +1,4 @@
-# PyChain Ledger
-################################################################################
-# You’ll make the following updates to the provided Python file for this
-# Challenge, which already contains the basic `PyChain` ledger structure that
-# you created throughout the module:
 
-# Step 1: Create a Record Data Class
-# * Create a new data class named `Record`. This class will serve as the
-# blueprint for the financial transaction records that the blocks of the ledger
-# will store.
-
-# Step 2: Modify the Existing Block Data Class to Store Record Data
-# * Change the existing `Block` data class by replacing the generic `data`
-# attribute with a `record` attribute that’s of type `Record`.
-
-# Step 3: Add Relevant User Inputs to the Streamlit Interface
-# * Create additional user input areas in the Streamlit application. These
-# input areas should collect the relevant information for each financial record
-# that you’ll store in the `PyChain` ledger.
-
-# Step 4: Test the PyChain Ledger by Storing Records
-# * Test your complete `PyChain` ledger.
-
-################################################################################
 # Imports
 import streamlit as st
 from dataclasses import dataclass
@@ -29,6 +6,8 @@ from typing import Any, List
 import datetime as datetime
 import pandas as pd
 import hashlib
+
+
 
 ################################################################################
 # Step 1:
@@ -49,7 +28,17 @@ import hashlib
 # @TODO
 # Create a Record Data Class that consists of the `sender`, `receiver`, and
 # `amount` attributes
-# YOUR CODE HERE
+# Create the data class Record to store transaction data
+
+@dataclass
+class Record:
+    """
+    Class to define the Record information and type
+    The Record will be included in the Block information
+    """
+    sender: str
+    receiver: str
+    amount: float
 
 
 ################################################################################
@@ -68,7 +57,7 @@ class Block:
 
     # @TODO
     # Rename the `data` attribute to `record`, and set the data type to `Record`
-    data: Any
+    record: Record
 
     creator_id: int
     prev_hash: str = "0"
@@ -144,7 +133,6 @@ def setup():
     print("Initializing Chain")
     return PyChain([Block("Genesis", 0)])
 
-
 st.markdown("# PyChain")
 st.markdown("## Store a Transaction Record in the PyChain")
 
@@ -166,30 +154,31 @@ pychain = setup()
 
 # @TODO:
 # Delete the `input_data` variable from the Streamlit interface.
-input_data = st.text_input("Block Data")
 
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-# YOUR CODE HERE
+# Get a value for `sender` from the user.
+Record.sender = st.text_input("Add Sender", placeholder="Enter A Valid PyChain Wallet Address")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-# YOUR CODE HERE
+Record.receiver = st.text_input("Add Receiver", placeholder="Enter A Valid PyChain Wallet Address")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-# YOUR CODE HERE
-
-if st.button("Add Block"):
-    prev_block = pychain.chain[-1]
-    prev_block_hash = prev_block.hash_block()
+Record.amount = st.text_input("Add Amount", placeholder="Enter The Amount That Was Transfered")
 
     # @TODO
     # Update `new_block` so that `Block` consists of an attribute named `record`
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
+    
+if st.button("Add Block"):
+    prev_block = pychain.chain[-1]
+    prev_block_hash = prev_block.hash_block()
+
     new_block = Block(
-        data=input_data,
+        record=Record,
         creator_id=42,
         prev_hash=prev_block_hash
     )
