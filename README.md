@@ -1,6 +1,7 @@
 ## About The Project
-This a blockchain-based ledger system, complete with a user-friendly Streamlit web interface. This ledger allows the user to conduct financial transactions between senders and receivers, and also verify the integrity of the data in the ledger by checking the previous block's hash.
+This a blockchain-based ledger system, complete with a user-friendly Streamlit web interface. This ledger allows the user to conduct financial transactions between senders and receivers, and also verify the data in the ledger by checking the previous block's hash.
 
+## Built With
 ## Built With
 Python
 Python pandas
