@@ -7,7 +7,10 @@ Python pandas
 Python Streamlit
 Python conda
 
-![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain1.png)
+![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain1.png)width="90" height="90" />
+![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain2.png)width="90" height="90" />
+![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain3.png)width="90" height="90" />
+
 
 ## Usage
 This image shows the entry of the Sender and Receiver addresses and the first entry after the Genesis block.
