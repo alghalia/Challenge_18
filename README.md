@@ -7,6 +7,10 @@ Python pandas
 Python Streamlit
 Python conda
 
+## The Streamlit application page
+![Screanshot](https://github.com/alghalia/Challenge_18/blob/main/images/streamlit%20.png)width="90" height="90" />
+
+## Streamlit application page, which indicates the validity of the blockchain
 ![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain1.png)width="90" height="90" />
 ![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain2.png)width="90" height="90" />
 ![Screenshot](https://github.com/alghalia/Challenge_18/blob/main/images/pychain3.png)width="90" height="90" />
