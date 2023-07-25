@@ -158,15 +158,17 @@ pychain = setup()
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
 # Get a value for `sender` from the user.
-Record.sender = st.text_input("Add Sender", placeholder="Enter A Valid PyChain Wallet Address")
+
+sender = st.text_input("Add Sender", placeholder="Enter A Valid PyChain Wallet Address")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-Record.receiver = st.text_input("Add Receiver", placeholder="Enter A Valid PyChain Wallet Address")
+receiver = st.text_input("Add Receiver", placeholder="Enter A Valid PyChain Wallet Address")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-Record.amount = st.text_input("Add Amount", placeholder="Enter The Amount That Was Transfered")
+amount = st.text_input("Add Amount", placeholder="Enter The Amount That Was Transfered")
+
 
     # @TODO
     # Update `new_block` so that `Block` consists of an attribute named `record`
@@ -178,7 +180,7 @@ if st.button("Add Block"):
     prev_block_hash = prev_block.hash_block()
 
     new_block = Block(
-        record=Record,
+        record=Record(sender, receiver , amount),
         creator_id=42,
         prev_hash=prev_block_hash
     )
@@ -207,6 +209,9 @@ st.sidebar.write(selected_block)
 if st.button("Validate Chain"):
     st.write(pychain.is_valid())
 
+    
+
+    
 ################################################################################
 # Step 4:
 # Test the PyChain Ledger by Storing Records
